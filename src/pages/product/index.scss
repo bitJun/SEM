@@ -1,0 +1,175 @@
+.index {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 46.35%, #FFFFFF 100%), #4F89F0;
+  height: 900px;
+  width: 750px;
+  filter: blur(20px);
+  &_img {
+    width: 100%;
+  }
+}.member_view {
+  &_section {
+    padding: 20px 25px;
+    &_title {
+      font-family: 'PingFang SC';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 44px;
+      color: rgba(0, 0, 0, 0.9);
+      margin-bottom: 20px;
+    }
+  }
+  &_list {
+    &_item {
+      padding: 23px 34px 20px 26px; 
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      margin-bottom: 20px;
+      &_user {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        &_image {
+          width: 96px;
+          height: 96px;
+          border-radius: 100px;
+        }
+        &_info {
+          flex: 1;
+          padding-left: 20px;
+          box-sizing: border-box;
+          &_name {
+            display: flex;
+            align-items: center;
+            height: 42px;
+            margin-bottom: 10px;
+            margin-right: 16px;
+            font-family: 'PingFang SC';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 49px;
+            line-height: 42px;
+            color: rgba(0, 0, 0, 0.9);
+            &_desc {
+              font-family: 'PingFang SC';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 24px;
+              line-height: 34px;
+              color: rgba(0, 0, 0, 0.5);
+            }
+          }
+          &_tag {
+            padding: 0 12px 0 8px;
+            box-sizing: border-box;
+            height: 30px;
+            line-height: 30px;
+            font-family: 'PingFang SC';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 28px;
+            color: #4F89F0;
+          }
+        }
+      }
+      &_intro {
+        font-family: 'PingFang SC';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 30px;
+        margin-bottom: 16px;
+        color: rgba(0, 0, 0, 0.9);
+      }
+      &_advantage {
+        display: flex;
+        align-items: center;
+        font-family: 'PingFang SC';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        color: rgba(0, 0, 0, 0.9);
+        margin-bottom: 16px;
+        &_tag {
+          margin-right: 20px;
+          width: 80px;
+          font-family: 'PingFang SC';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 34px;
+          color: #FFFFFF;
+          height: 24px;
+          background: linear-gradient(90deg, #4F89F0 37.5%, rgba(79, 137, 240, 0) 100%);
+        }
+      }
+    }
+  }
+  &_filter {
+    height: 120px;
+    padding: 22px 26px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    &_search {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      height: 76px;
+      position: relative;
+      padding-left: 76px;
+      box-sizing: border-box;
+      width: 550px;
+      &_icon {
+        width: 33px;
+        height: 33px;
+        position: absolute;
+        left: 20px;
+        top: 22px;
+      }
+      &_value {
+        height: 76px;
+        color: rgba(0, 0, 0, 0.9);
+        font-size: 28px;
+        font-family: 'PingFang SC';
+        font-style: normal;
+        font-weight: 400;
+      }
+      &_clear {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        width: 48px;
+        height: 48px;
+      }
+    }
+    &_action {
+      flex: 1;
+      padding-left: 25px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center
+      ;font-family: 'PingFang SC';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 28px;
+      color: rgba(0, 0, 0, 0.9);
+      &_icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 16px;
+      }
+    }
+  }
+}
+.placeholder {
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.3);
+}

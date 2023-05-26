@@ -1,0 +1,50 @@
+.code_view {
+  background: url('http://image.hzymsh.com/mini/images/bg.png');
+  background-size: 100% 750px fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  &_main {
+    padding: 228px 74px 0 76px;
+    &_content {
+      width: 600px;
+      height: 840px;
+      background: #FFFFFF;
+      opacity: 1;
+      border: 1px solid rgba(0,0,0,0.15);
+      padding-top: 80px;
+      box-sizing: border-box;
+      &_title {
+        height: 50px;
+        font-size: 36px;
+        font-family: PingFang SC-Bold, PingFang SC;
+        font-weight: bold;
+        color: #000000;
+        line-height: 50px;
+        margin-bottom: 28px;
+      }
+      &_desc {
+        height: 80px;
+        font-size: 26px;
+        font-family: PingFang SC-Regular, PingFang SC;
+        font-weight: 400;
+        color: rgba(0,0,0,0.3);
+        line-height: 40px;
+        margin-bottom: 62px;
+      }
+      &_detail {
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        width: 600px;
+        height: 540px;
+        background-image: url('https://cqpyq-xcx.oss-cn-hangzhou.aliyuncs.com/mini/images/code_bg.png');
+        background-size: cover;
+        box-sizing: border-box;
+        &_img {
+          width: 360px;
+          height: 360px;
+        }
+      }
+    }
+  }
+}

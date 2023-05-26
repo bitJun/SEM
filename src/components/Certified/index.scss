@@ -1,0 +1,9 @@
+.certified {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &_item {
+    width: 98px;
+    height: 98px;
+  }
+}

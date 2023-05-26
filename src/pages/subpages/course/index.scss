@@ -1,0 +1,59 @@
+.index_view {
+  &_bg {
+    background: url('http://image.hzymsh.com/mini/images/bg.png');
+    background-size: 750px 750px;
+    background-size: cover;
+    height: 750px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+  }
+  &_main {
+    position: relative;
+    z-index: 99;
+    padding: 20px 24px 0 26px;
+    &_banner {
+      width: 700px;
+      height: 240px;
+      margin-bottom: 40px;
+    }
+    &_title {
+      height: 42px;
+      font-size: 30px;
+      font-family: PingFang SC-Bold, PingFang SC;
+      font-weight: bold;
+      color: #000000;
+      line-height: 42px;
+      margin-bottom: 22px;
+    }
+    &_list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      &_item {
+        width: 220px;
+        margin-bottom: 36px;
+        margin-right: 20px;
+        &_img {
+          width: 220px;
+          height: 300px;
+          border-radius: 8px;
+          margin-bottom: 16px;
+        }
+        &_name {
+          height: 40px;
+          font-size: 28px;
+          font-family: PingFang SC-Bold, PingFang SC;
+          font-weight: bold;
+          color: #000000;
+          line-height: 40px;
+        }
+      }
+      &_item:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+}

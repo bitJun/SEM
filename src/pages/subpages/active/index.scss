@@ -1,0 +1,147 @@
+.index_view {
+  background: url('http://image.hzymsh.com/mini/images/bg.png');
+  background-size: 100% 750px fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  &_main {
+    padding: 20px 34px 0 36px;
+    &_item {
+      background: #FFFFFF;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.25);
+      margin-bottom: 20px;
+      padding: 26px 30px 34px 30px;
+      box-sizing: border-box;
+      &_info {
+        display: flex;
+        margin-bottom: 20px;
+        &_img {
+          width: 148px;
+          height: 200px;
+          border-radius: 8px;
+        }
+        &_main {
+          flex: 1;
+          padding-left: 30px;
+          &_name {
+            height: 40px;
+            font-size: 28px;
+            font-family: PingFang SC-Bold, PingFang SC;
+            font-weight: bold;
+            color: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+          }
+          &_desc {
+            font-size: 26px;
+            font-family: PingFang SC-Regular, PingFang SC;
+            font-weight: 400;
+            color: rgba(0,0,0,0.3);
+            line-height: 40px;
+          }
+        }
+      }
+      &_title {
+        height: 34px;
+        font-size: 24px;
+        font-family: PingFang SC-Regular, PingFang SC;
+        font-weight: 400;
+        color: rgba(0,0,0,0.5);
+        line-height: 34px;
+        margin-bottom: 16px;
+      }
+      &_progress {
+
+      }
+      &_tags {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        &_item {
+          width: 180px;
+          height: 52px;
+          border-radius: 6px;
+          border: 2px solid rgba(0,0,0,0.15);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          font-family: PingFang SC-Regular, PingFang SC;
+          font-weight: 400;
+          color: rgba(0,0,0,0.3);
+        }
+        &_item.active {
+          color: #4F89F0;
+          border-color: #4F89F0;
+        }
+      }
+      &_orders {
+        margin-top: 30px;
+        &_item {
+          display: flex;
+          justify-content: space-between;
+          &_detail {
+            display: flex;
+            flex-direction: column;
+            &_orderNo {
+              font-size: 24px;
+              font-family: PingFang SC-Regular, PingFang SC;
+              font-weight: 400;
+              color: rgba(0,0,0,0.9);
+              line-height: 30px;
+            }
+            &_Number {
+              font-size: 24px;
+              font-family: PingFang SC-Regular, PingFang SC;
+              font-weight: 400;
+              color: rgba(0,0,0,0.3);
+              line-height: 30px;
+            }
+          }
+          &_action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 140px;
+            height: 52px;
+            background: #FFFFFF;
+            border-radius: 6px;
+            opacity: 1;
+            border: 2px solid #4F89F0;
+            font-size: 24px;
+            font-family: PingFang SC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #4F89F0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.at-tabs__header {
+  background-color: transparent !important;
+  height: 96px;
+}
+.at-tabs__item {
+  font-size: 30px;
+  font-family: PingFang SC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.9);
+}
+.at-tabs__item--active {
+  font-size: 30px;
+  font-family: PingFang SC-Bold, PingFang SC;
+  font-weight: bold;
+  color: #4F89F0;
+}
+.at-tabs__item--active .at-tabs__item-underline {
+  width: 80px;
+  height: 4px;
+  background: #4F89F0;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}

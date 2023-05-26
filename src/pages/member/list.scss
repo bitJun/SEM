@@ -1,0 +1,81 @@
+.index_view {
+  background: url('http://image.hzymsh.com/mini/images/bg.png');
+  background-size: 100% 750px fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  &_list {
+    padding: 40px 36px 0 34px;
+    &_title {
+      height: 40px;
+      line-height: 40px;
+      font-size: 28px;
+      font-family: PingFang SC-Bold, PingFang SC;
+      font-weight: bold;
+      color: rgba(0,0,0,0.9);
+      margin-bottom: 20px;
+    }
+    &_item {
+      width: 680px;
+      background: #FFFFFF;
+      border-radius: 8px;
+      opacity: 1;
+      border: 1px solid rgba(0,0,0,0.15);
+      margin-bottom: 20px;
+      padding: 20px 20px 28px 20px;
+      box-sizing: border-box;
+      &_info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        &_logo {
+          width: 120px;
+          height: 120px;
+          border-radius: 100px;
+        }
+        &_main {
+          padding-left: 40px;
+          flex: 1;
+          &_name {
+            height: 48px;
+            font-size: 34px;
+            font-family: PingFang SC-Bold, PingFang SC;
+            font-weight: bold;
+            color: rgba(0,0,0,0.9);
+            line-height: 48px;
+            margin-bottom: 10px;
+          }
+          &_desc {
+            display: flex;
+            align-items: center;
+            height: 34px;
+            font-size: 24px;
+            font-family: PingFang SC-Regular, PingFang SC;
+            font-weight: 400;
+            color: rgba(0,0,0,0.9);
+            &_icon {
+              width: 28px;
+              height: 28px;
+              margin-right: 6px;
+            }
+          }
+        }
+      }
+      &_tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        &_item {
+          padding: 8px 20px 10px 20px;
+          font-size: 24px;
+          font-family: PingFang SC-Regular, PingFang SC;
+          font-weight: 400;
+          color: rgba(0,0,0,0.5);
+          line-height: 34px;
+          box-sizing: border-box;
+          background: rgba(0,0,0,0.05);
+          border-radius: 60px;
+        }
+      }
+    }
+  }
+}

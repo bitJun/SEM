@@ -1,0 +1,204 @@
+.blur {
+  background: rgba(0,0,0,0.15) linear-gradient(180deg, rgba(255,255,255,0) 46%, #FFFFFF 100%);
+  border-radius: 0px 0px 0px 0px;
+  opacity: 1;
+  filter: blur(30px);
+  width: 1000px;
+  height: 790px;
+  position: fixed;
+  top: -20px;
+  left: -124px;
+}
+.mine_view {
+  // background: url('http://image.hzymsh.com/mini/images/bluebg.png');
+  background-size: 750px 750px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  &_main {
+    padding: 82px 54px 32px 56px;
+    position: relative;
+    z-index: 199;
+    &_user {
+      display: flex;
+      align-items: center;
+      height: 120px;
+      padding-left: 4px;
+      &_logo {
+        width: 120px;
+        height: 120px;
+        border-radius: 100px;
+      }
+      &_info {
+        flex: 1;
+        padding-left: 40px;
+        box-sizing: border-box;
+        &_name {
+          font-family: 'PingFang SC';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 36px;
+          line-height: 50px;
+          color: #FFFFFF;
+          margin-bottom: 8px;
+        }
+        &_address {
+          font-family: 'PingFang SC';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 34px;
+          color: #FFFFFF;
+        }
+      }
+      &_action {
+        display: flex;
+        &_item {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          &_icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 8px;
+          }
+          &_text {
+            font-family: 'PingFang SC';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 34px;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    &_info {
+      margin-top: 30px;
+      width: 640px;
+      height: 80px;
+      background: rgba(0,0,0,0.15);
+      opacity: 1;
+      border: 1px solid rgba(255,255,255,0.25);
+      font-size: 26px;
+      font-family: PingFang SC-Bold, PingFang SC;
+      border-radius: 8px;
+      font-weight: bold;
+      color: rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      &_wechat {
+        height: 36px;
+        margin-right: 36px;
+      }
+      &_action {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &_icon {
+          width: 36px;
+          height: 36px;
+        }
+      }
+    
+    }
+    &_info.blue {
+      background: #4F89F0;
+    }
+    &_detail {
+      margin-top: 20px;
+      box-sizing: border-box;
+      &_baseInfo {
+        padding: 0 10px;
+        display: flex;
+        flex-wrap: wrap;
+        &_item {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 26px;
+          width: 190px;
+          &_title {
+            height: 34px;
+            font-size: 24px;
+            font-family: PingFang SC-Bold, PingFang SC;
+            font-weight: bold;
+            color: rgba(0,0,0,0.3);
+            line-height: 34px;
+            margin-bottom: 4px;
+          }
+          &_value {
+            height: 36px;
+            font-size: 26px;
+            font-family: PingFang SC-Regular, PingFang SC;
+            font-weight: 400;
+            color: rgba(0,0,0,0.9);
+            line-height: 36px;
+          }
+        }
+        &_item:nth-child(2n-1) {
+          width: 430px;
+        }
+      }
+      &_intro {
+        margin-top: 40px;
+        padding-bottom: 60px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        &_title {
+          padding: 0 10px;
+          height: 34px;
+          font-size: 24px;
+          font-family: PingFang SC-Bold, PingFang SC;
+          font-weight: bold;
+          color: rgba(0,0,0,0.3);
+          line-height: 34px;
+          margin-bottom: 8px;
+        }
+        &_value {
+          padding: 0 10px;
+          font-size: 26px;
+          font-family: PingFang SC-Regular, PingFang SC;
+          font-weight: 400;
+          color: rgba(0,0,0,0.9);
+          line-height: 32px;
+        }
+      }
+      &_others {
+        padding: 32px 12px 0 12px;
+        &_title {
+          height: 34px;
+          font-size: 24px;
+          font-family: PingFang SC-Bold, PingFang SC;
+          font-weight: bold;
+          color: rgba(0,0,0,0.3);
+          line-height: 34px;
+          margin-bottom: 20px;
+        }
+        &_tags {
+          margin-bottom: 40px;
+          display: flex;
+          gap: 16px;
+          flex-wrap: wrap;
+          &_item {
+            padding: 8px 20px 10px 22px;
+            box-sizing: border-box;
+            border-radius: 60px;
+            border: 1px solid rgba(0,0,0,0.15);
+            line-height: 34px;
+            font-size: 24px;
+            font-family: PingFang SC-Regular, PingFang SC;
+            font-weight: 400;
+            color: rgba(0,0,0,0.5);
+          }
+        }
+      }
+    }
+  }
+}

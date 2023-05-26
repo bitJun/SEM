@@ -1,0 +1,68 @@
+.tabbar_view {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #ffffff;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  height: 98px;
+  padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: content-box;
+  &_item {
+    flex: 1;
+    text-align: center;
+    &_main {
+      display: flex;
+      justify-content: center;
+    }
+    &_img {
+      position: relative;
+      width: 44px;
+      &_num {
+        position: absolute;
+        top: -6px;
+        right: -100%;
+        // transform: translateX(-50%);
+        height: 28px;
+        background: #F24456;
+        border-radius: 14px;
+        border: 1px solid #FFFFFF;
+        padding: 0 7px 0 8px;
+        z-index: 9;
+        font-size: 22px;
+        font-weight: 500;
+        color: #FFFFFF;
+      }
+      &_icon {
+        width: 44px;
+        margin-bottom: 8px;
+      }
+      &_icon {
+        width: 44px;
+      }
+      &_icon.square {
+        width: 48px;
+      }
+      &_icon.match {
+        margin-bottom: 10px;
+      }
+    }
+    &_text {
+      height: 20px;
+      font-size: 20px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #A39A9D;
+      line-height: 20px;
+    }
+    &_text.active {
+      color: #F24456;
+    }
+  }
+  &_item.active {
+
+  }
+}

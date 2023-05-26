@@ -1,0 +1,33 @@
+.bill_view {
+  background: url('http://image.hzymsh.com/mini/images/bg.png');
+  background-size: 100% 750px fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  &_main {
+    padding: 302px 34px 0 36px;
+    box-sizing: border-box;
+    &_img {
+      width: 680px;
+      height: 431px;
+      margin-bottom: 60px;
+    }
+    &_action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &_btn {
+        width: 360px;
+        height: 80px;
+        background: #4F89F0;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
+        font-family: PingFang SC-Medium, PingFang SC;
+        font-weight: 500;
+        color: #FFFFFF;
+      }
+    }
+  }
+}

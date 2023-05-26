@@ -1,0 +1,177 @@
+.mine_view {
+  background: url('http://image.hzymsh.com/mini/images/bg.png');
+  background-size: 100% 750px fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  &_main {
+    // margin-top: -700px;
+    padding: 20px 32px 0 32px;
+    &_info {
+      width: 680px;
+      margin: 0 auto;
+      height: 360px;
+      background: linear-gradient(95.57deg, #3E71CC 0%, #ACC9FE 99.96%);
+      border-radius: 8px;
+      &_section {
+        display: flex;
+        padding: 50px 0 0 50px;
+        &_logo {
+          width: 120px;
+          height: 120px;
+          border-radius: 100px;
+        }
+        &_detail {
+          flex: 1;
+          padding-left: 30px;
+          box-sizing: border-box;
+          &_name {
+            display: flex;
+            align-items: center;
+            height: 48px;
+            font-family: 'PingFang SC';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 34px;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            &_class {
+              margin-left: 12px;
+              padding: 4px 16px 6px 14px;
+              background: rgba(0, 0, 0, 0.15);
+              border: 1px solid rgba(255, 255, 255, 0.25);
+              border-radius: 60px;
+              font-family: 'PingFang SC';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 24px;
+              line-height: 34px;
+              color: rgba(255, 255, 255, 0.75);
+            }
+          }
+          &_tags {
+            display: flex;
+            align-items: center;
+            &_item {
+              display: flex;
+              position: relative;
+              font-family: 'PingFang SC';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 24px;
+              color: #FFFFFF;
+              margin-right: 24px;
+              &_icon {
+                width: 28px;
+                height: 28px;
+                margin-right: 12px;
+              }
+            }
+            &_item::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              height: 28px;
+              width: 1px;
+              right: -12px;
+              background: #ffffff;
+            }
+            &_item:last-child:after {
+              display: none;
+            }
+          }
+        }
+      }
+      &_actions {
+        display: flex;
+        margin-top: 40px;
+        &_item {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          height: 120px;
+          &_icon.mingpian {
+            width: 84px;
+            height: 84px;
+          }
+          &_icon.rights {
+            width: 72px;
+            height: 72px;
+            margin-bottom: 6px;
+          }
+          &_icon.active {
+            width: 68px;
+            height: 68px;
+            margin-bottom: 8px;
+          }
+          &_text {
+            height: 34px;
+            font-family: 'PingFang SC';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 34px;
+            color: #FFFFFF;
+          }
+        }
+        &_item::after {
+          position: absolute;
+          content: '';
+          right: 0;
+          top: 0;
+          width: 1px;
+          height: 120px;
+          background: rgba(255, 255, 255, 0.5);
+        }
+        &_item:last-child:after {
+          display: none;
+        }
+      }
+    }
+    &_actions {
+      &_item {
+        display: flex;
+        align-items: center;
+        height: 111px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        font-family: 'PingFang SC';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        color: rgba(0, 0, 0, 0.9);
+        position: relative;
+        &_icon.fapiao {
+          width: 52px;
+          height: 52px;
+          margin-right: 40px;
+        }
+        &_icon.agree {
+          width: 56px;
+          height: 56px;
+          margin-right: 36px;
+        }
+        &_icon.question {
+          width: 56px;
+          height: 56px;
+          margin-right: 36px;
+        }
+        &_icon.callback {
+          width: 56px;
+          height: 56px;
+          margin-right: 36px;
+        }
+        &_more {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 18px;
+          height: 36px;
+        }
+      }
+    }
+  }
+}

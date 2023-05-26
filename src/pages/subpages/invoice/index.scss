@@ -1,0 +1,68 @@
+.bill_view {
+  background: url('http://image.hzymsh.com/mini/images/bg.png');
+  background-size: 100% 750px fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  &_main {
+    padding: 40px 38px 0 32px;
+    &_item {
+      width: 680px;
+      height: 180px;
+      background: #FFFFFF;
+      border-radius: 8px;
+      opacity: 1;
+      border: 1px solid rgba(0,0,0,0.25);
+      padding: 24px 20px 20px 30px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      position: relative;
+      &_name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 42px;
+        font-size: 30px;
+        font-family: PingFang SC-Regular, PingFang SC;
+        font-weight: 400;
+        color: rgba(0,0,0,0.9);
+        margin-bottom: 44px;
+        &_num {
+          font-size: 28px;
+          font-family: PingFang SC-Regular, PingFang SC;
+          font-weight: 400;
+          color: rgba(0,0,0,0.5);
+        }
+      }
+      &_price {
+        height: 44px;
+        line-height: 44px;
+        font-size: 28px;
+        font-family: Montserrat-Regular, Montserrat;
+        font-weight: 400;
+        color: rgba(0,0,0,0.9);
+      }
+      &_action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 160px;
+        height: 60px;
+        background: #FFFFFF;
+        border-radius: 6px 6px 6px 6px;
+        opacity: 1;
+        border: 2px solid #4F89F0;
+        font-size: 28px;
+        font-family: PingFang SC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #4F89F0;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+      }
+      &_action.disable {
+        opacity: 0.3;
+        border: 2px solid #4F89F0;
+      }
+    }
+  }
+}

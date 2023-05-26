@@ -1,0 +1,89 @@
+.active_view {
+  background: url('http://image.hzymsh.com/mini/images/bg.png');
+  background-size: 100% 750px fixed;
+  background-position: 0 0;
+  &_banner {
+    padding: 40px 26px 0 24px;
+    margin-bottom: 40px;
+    &_img {
+      width: 700px;
+    }
+  }
+  &_main {
+    padding: 0 50px 0 40px;
+    &_title {
+      font-family: 'PingFang SC';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 42px;
+      color: #000000;
+      margin-bottom: 22px;
+    }
+    &_list {
+      margin-bottom: 40px;
+      &_item {
+        margin-bottom: 30px;
+        display: flex;
+        &_img {
+          width: 200px;
+          height: 270px;
+          border-radius: 8px;
+        }
+        &_info {
+          flex: 1;
+          padding-left: 40px;
+          box-sizing: border-box;
+          &_name {
+            display: flex;
+            align-items: center;
+            &_tag {
+              padding: 0 4px 2px 4px;
+              box-sizing: border-box;
+              font-family: 'PingFang SC';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 26px;
+              color: #ffffff;
+              background: #4F89F0;
+              border-radius: 4px;
+              margin: 0 8px 0 12px;
+            }
+          }
+          &_tags {
+            display: flex;
+            gap: 16px;
+          }
+          &_time,
+          &_address {
+            font-family: 'PingFang SC';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 26px;
+            line-height: 40px;
+            color: rgba(0, 0, 0, 0.3);
+          }
+          &_action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 22px;
+            width: 120px;
+            height: 56px;
+            background: #4F89F0;
+            border-radius: 6px 6px 6px 6px;
+            opacity: 1;
+            font-size: 26px;
+            font-family: PingFang SC-Medium, PingFang SC;
+            font-weight: 500;
+            color: #FFFFFF;
+          }
+        }
+      }
+      &_item:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
