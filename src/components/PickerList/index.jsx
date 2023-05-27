@@ -24,11 +24,15 @@ const Address = (props) => {
 	const [secondList, setSecongList] = useState([]);
 	const [thirdList, setThirdList] = useState([]);
 	const [range, setRange] = useState([]);
-	const [values, setValues] = useState([]);
+	const [values, setValues] = useState([0,0,0]);
 
   useEffect(()=>{
 		handleList()
   }, [props.list]);
+	
+	// useEffect(()=>{
+	// 	console.log('range', range)
+  // }, [range]);
 
 	const handleList = () => {
 		let first = [];
@@ -48,9 +52,19 @@ const Address = (props) => {
 		setFirstList(first);
 		setSecongList(second);
 		setThirdList(third);
+		
 		if (second.length > 0) {
 			setMode('multiSelector');
-			setRange([first, second, third]);
+			let firstId = first[0].id;
+			let SecondColumn = [];
+			SecondColumn = second.filter(item=>{
+				return item.parentId == firstId;
+			})
+			let ThirdColumn = [];
+			ThirdColumn = third.filter(item=>{
+				return item.parentId == SecondColumn[0].id;
+			})
+			setRange([first, SecondColumn, ThirdColumn]);
 		} else {
 			setMode('selector');
 			setRange(first);
@@ -60,8 +74,29 @@ const Address = (props) => {
   const onColumnChange = (e) => {
 		let column = e.detail.column;
 		let row = e.detail.value;
-		console.log('column', column)
-		console.log('row', row)
+		let columnValue = [...values];
+		columnValue[column] = row;
+		setValues(columnValue)
+		if (column == 0) {
+			let firstId = firstList[row].id;
+			let SecondColumn = [];
+			SecondColumn = secondList.filter(item=>{
+				return item.parentId == firstId;
+			});
+			let ThirdColumn = [];
+			ThirdColumn = thirdList.filter(item=>{
+				return item.parentId == SecondColumn[0].id;
+			});
+			setRange([firstList, SecondColumn, ThirdColumn]);
+		}
+		if (column == 1) {
+			let rangeList = [...range];
+			let ThirdColumn = [];
+			ThirdColumn = thirdList.filter(item=>{
+				return item.parentId == rangeList[1][row].id;
+			});
+			setRange([rangeList[0], rangeList[1], ThirdColumn]);
+		}
 	}
 	
 	const onChange = (e) => {
@@ -69,10 +104,13 @@ const Address = (props) => {
 		let result = null;
 		if (mode == 'selector') {
 			result = range[value];
+		} else {
+			result = [range[0][value[0]], range[1][value[1]], range[2][value[2]]]
 		}
 		onChangeList({
 			result: result,
-			type: type
+			type: type,
+			mode
 		})
 	}
 

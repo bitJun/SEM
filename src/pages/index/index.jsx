@@ -94,13 +94,13 @@ const Index = () => {
     onLoadTaskStatus();
   })
 
-  useEffect(()=>{
-    if (isOpened) {
-      Taro.hideTabBar({})
-    } else {
-      Taro.showTabBar({})
-    }
-  }, [isOpened]);
+  // useEffect(()=>{
+  //   if (isOpened) {
+  //     Taro.hideTabBar({})
+  //   } else {
+  //     Taro.showTabBar({})
+  //   }
+  // }, [isOpened]);
 
   const onLoad = () => {
     queryHomePageCourseList()
@@ -114,7 +114,7 @@ const Index = () => {
       .then(res=>{
         setTaskEvolve(res.taskEvolve);
         if(res.taskEvolve < 5) {
-          setIsOpened(true);
+          // setIsOpened(true);
         }
       })
   }

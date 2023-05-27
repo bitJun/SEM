@@ -3,12 +3,12 @@ export const baseUrl = 'http://image.hzymsh.com/mini/images/';
 /**
  * 王小龙
  */
-export const requestBaseUrl = 'http://192.168.2.51:8301/frontend-web/api';
+// export const requestBaseUrl = 'http://192.168.2.51:8301/frontend-web/api';
 
 /**
  * 刘章钱
  */
-// export const requestBaseUrl = 'http://192.168.2.95:8301/frontend-web/api';
+export const requestBaseUrl = 'http://192.168.2.95:8301/frontend-web/api';
 
 /**
  * 测试环境

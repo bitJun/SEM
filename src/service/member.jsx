@@ -23,7 +23,7 @@ const queryUser = (data) => {
 const putEditPublic = (data) => {
   return baseRequest({
 		url: `${requestBaseUrl}/user/editPublic`,
-		method: 'POST',
+		method: 'PUT',
     contentType: 'application/json',
 		data
 	})

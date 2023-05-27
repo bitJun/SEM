@@ -14,6 +14,7 @@ import {
   queryVisitOther,
   queryOtherUser,
   queryUser,
+  putEditPublic
 } from '@service/member';
 import {
   baseUrl
@@ -72,7 +73,7 @@ const BusinessCard = () => {
   }
 
   const onChangeWeChatStatus = () => {
-    if (showWechat) {
+    if (detail?.isAgreePublicWx) {
       Taro.showModal({
         title: '您正在尝试隐藏微信号',
         content: '隐藏微信号将会影响您和上万用户的链接，是否继续？',
@@ -82,8 +83,14 @@ const BusinessCard = () => {
         cancelText: '放弃',
         success: function (res) {
           if (res.confirm) {
-            console.log('用户点击确定')
-            setShowWechat(!showWechat)
+            putEditPublic({isPublic: false, event: 2})
+              .then(res=>{
+                Taro.showToast({
+                  title: '操作成功',
+                  icon: 'none'
+                })
+                onLoadSelfData()
+              })
           } else if (res.cancel) {
             console.log('用户点击取消')
           }
@@ -91,6 +98,14 @@ const BusinessCard = () => {
       })
     } else {
       setShowWechat(!showWechat)
+      putEditPublic({isPublic: true, event: 2})
+        .then(res=>{
+          Taro.showToast({
+            title: '操作成功',
+            icon: 'none'
+          })
+          onLoadSelfData()
+        })
     }
   }
 
@@ -147,10 +162,10 @@ const BusinessCard = () => {
                 className='mine_view_main_info_wechat'
                 mode='heightFix'
               />
-              {showWechat ? 'zhangyishan' : '微信号不公开'}
+              {detail?.isAgreePublicWx ? detail?.wxNo : '微信号不公开'}
               <View className='mine_view_main_info_action' onClick={()=>{onChangeWeChatStatus()}}>
                 <Image
-                  src={showWechat ? `${baseUrl}mine/eyeshow.png` : `${baseUrl}mine/eyehide.png`}
+                  src={detail?.isAgreePublicWx ? `${baseUrl}mine/eyeshow.png` : `${baseUrl}mine/eyehide.png`}
                   className='mine_view_main_info_action_icon'
                 />
               </View>

@@ -39,7 +39,6 @@ const BusinessEdit = () => {
   let rate = systemInfo.safeArea.width / 750;
   const [detail, setDetail] = useState({});
   const defaultImage = `${baseUrl}defaultAvatarUrl.png`;
-  const [sex, setSex] = useState(0);
   const [industryList, setIndustryList] = useState([]);
   const [positionList, setPositionList] = useState([]);
   const [revenueList, setRevenueList] = useState([]);
@@ -69,6 +68,22 @@ const BusinessEdit = () => {
     queryUser()
       .then(res=>{
         setDetail(res);
+        let data = {...rangeValue};
+        data.industry = res.industryModel?.label || '';
+        data.position = res.positionModel?.label || '';
+        data.revenue = res.revenueModel?.label || '';
+        data.businessType = res.businessTypeModel?.label || '';
+        setRangeValue(data)
+        let labelList = [];
+        res.appealModelList && res.appealModelList.forEach(item=>{
+          labelList.push(item.id)
+        })
+        let resource_list = [];
+        res.resourceModelList && res.resourceModelList.forEach(item=>{
+          resource_list.push(item.id)
+        });
+        setAppealLabel(labelList)
+        setResource(resource_list)
       })
   }
 
@@ -122,7 +137,9 @@ const BusinessEdit = () => {
   }
 
   const onSelectSex = (key) => {
-    setSex(key);
+    let params = {...detail};
+    params.sex = key;
+    setDetail(params);
   }
 
   const onSubmit = () => {
@@ -173,7 +190,16 @@ const BusinessEdit = () => {
     let list = [...appealLabel]
     let index = list.indexOf(id);
     if (index == -1) {
-      list.push(id)
+      if (list.length >= 4) {
+        Taro.showToast({
+          title: '最多选择4个标签',
+          icon: 'none'
+        })
+        return;
+      }
+      else {
+        list.push(id)
+      }
     } else {
       list.splice(index, 1);
     }
@@ -184,7 +210,16 @@ const BusinessEdit = () => {
     let list = [...resource]
     let index = list.indexOf(id);
     if (index == -1) {
-      list.push(id)
+      if (list.length >= 4) {
+        Taro.showToast({
+          title: '最多选择4个标签',
+          icon: 'none'
+        })
+        return;
+      }
+      else {
+        list.push(id)
+      }
     } else {
       list.splice(index, 1);
     }
@@ -204,13 +239,31 @@ const BusinessEdit = () => {
   const onChangePicker = (event) => {
     let {
       result,
-      type
+      type,
+      mode
     } = event;
+    let dictLabel = '';
     let params = {...detail};
-    params[type] = result.id;
-    setDetail(params);
-    rangeValue[type] = result.dictLabel;
+    if (mode == 'multiSelector') {
+      dictLabel = result[0]?.dictLabel;
+      params[type] = result[0]?.id;
+      if (result[1]?.dictLabel) {
+        // dictLabel = dictLabel + result[1]?.dictLabel
+        dictLabel = result[1]?.dictLabel
+        params[type] = result[1]?.id;
+      }
+      if (result[2]?.dictLabel) {
+        // dictLabel = dictLabel + result[1]?.dictLabel + result[2]?.dictLabel
+        dictLabel = result[2]?.dictLabel
+        params[type] = result[2]?.id;
+      }
+    } else {
+      params[type] = result.id;
+      dictLabel = result.dictLabel;
+    }
+    rangeValue[type] = dictLabel;
     setRangeValue(rangeValue);
+    setDetail(params);
   }
 
   return (
@@ -256,19 +309,20 @@ const BusinessEdit = () => {
               <Input
                 className='edit_view_main_item_value'
                 placeholder='请输入'
+                value={detail?.platformName}
                 onInput={(e)=>{onHandleChangeValue('platformName', e)}}
               />
               <View className='edit_view_main_item_actions'>
                 <View className='edit_view_main_item_actions_item' onClick={()=>{onSelectSex(0)}}>
                   <Image
-                    src={sex == 0 ? `${baseUrl}check.png` : `${baseUrl}uncheck.png`}
+                    src={detail?.sex == 0 ? `${baseUrl}check.png` : `${baseUrl}uncheck.png`}
                     className='edit_view_main_item_actions_item_icon'
                   />
                   男
                 </View>
                 <View className='edit_view_main_item_actions_item' onClick={()=>{onSelectSex(1)}}>
                   <Image
-                    src={sex == 1 ? `${baseUrl}check.png` : `${baseUrl}uncheck.png`}
+                    src={detail?.sex == 1 ? `${baseUrl}check.png` : `${baseUrl}uncheck.png`}
                     className='edit_view_main_item_actions_item_icon'
                   />
                   女
@@ -282,6 +336,7 @@ const BusinessEdit = () => {
               <Input
                 className='edit_view_main_item_value'
                 placeholder='请输入'
+                value={detail?.wxNo}
                 onInput={(e)=>{onHandleChangeValue('wxNo', e)}}
               />
               <View className='edit_view_main_item_action'>
@@ -299,7 +354,7 @@ const BusinessEdit = () => {
             <View className="flexwidth">
               <Picker
                 mode='date'
-                fields='year'
+                fields='day'
                 onChange={(e)=>{onChangeValue(e, 'birthday')}}
               >
                 <View className="edit_view_main_item_value">
@@ -331,20 +386,6 @@ const BusinessEdit = () => {
                 type='industry'
                 value={rangeValue['industry']}
               />
-              {/* <Picker
-                mode='selector'
-                range={industryList}
-                rangeKey="dictLabel"
-                onChange={(e)=>{onChangeValue(e, 'industry')}}
-              >
-                <View className="edit_view_main_item_value">
-                  {detail?.industry || '请选择行业'}
-                  <Image
-                    src={`${baseUrl}more.png`}
-                    className="edit_view_main_item_value_icon"
-                  />
-                </View>
-              </Picker> */}
             </View>
           </View>
           <View className='edit_view_main_item'>
@@ -356,20 +397,6 @@ const BusinessEdit = () => {
                 type='businessType'
                 value={rangeValue['businessType']}
               />
-              {/* <Picker
-                mode='selector'
-                range={businessTypeList}
-                rangeKey="dictLabel"
-                onChange={(e)=>{onChangeValue(e, 'businessType')}}
-              >
-                <View className="edit_view_main_item_value">
-                  {detail?.businessType || '请选择业务类型'}
-                  <Image
-                    src={`${baseUrl}more.png`}
-                    className="edit_view_main_item_value_icon"
-                  />
-                </View>
-              </Picker> */}
             </View>
           </View>
           <View className='edit_view_main_item'>
@@ -378,6 +405,7 @@ const BusinessEdit = () => {
               <Input
                 className='edit_view_main_item_value'
                 placeholder='请输入'
+                value={detail?.company}
                 onInput={(e)=>{onHandleChangeValue('company', e)}}
               />
             </View>
@@ -391,20 +419,6 @@ const BusinessEdit = () => {
                 type='position'
                 value={rangeValue['position']}
               />
-              {/* <Picker
-                mode='selector'
-                range={positionList}
-                rangeKey="dictLabel"
-                onChange={(e)=>{onChangeValue(e, 'position')}}
-              >
-                <View className="edit_view_main_item_value">
-                  {detail?.position || '请选择职位'}
-                  <Image
-                    src={`${baseUrl}more.png`}
-                    className="edit_view_main_item_value_icon"
-                  />
-                </View>
-              </Picker> */}
             </View>
           </View>
           <View className='edit_view_main_item'>
@@ -416,26 +430,12 @@ const BusinessEdit = () => {
                 type='revenue'
                 value={rangeValue['revenue']}
               />
-              {/* <Picker
-                mode='selector'
-                range={revenueList}
-                rangeKey="dictLabel"
-                onChange={(e)=>{onChangeValue(e, 'revenue')}}
-              >
-                <View className="edit_view_main_item_value">
-                  {detail?.revenue || '请选择营收规模'}
-                  <Image
-                    src={`${baseUrl}more.png`}
-                    className="edit_view_main_item_value_icon"
-                  />
-                </View>
-              </Picker> */}
             </View>
           </View>
           <View className='edit_view_main_intro'>
             <View className='edit_view_main_intro_title'>
               业务简介
-              <View className='edit_view_main_intro_title_size'>0/200</View>
+              <View className='edit_view_main_intro_title_size'>{detail?.businessProfile?.length || 0}/200</View>
             </View>
             <Textarea
               className='edit_view_main_intro_value'
