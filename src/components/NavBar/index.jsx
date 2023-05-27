@@ -29,6 +29,7 @@ const NavBar = (props) => {
   } = props;
 
   const Back = () => {
+    console.log('Back')
     Taro.navigateBack();
   }
   return (
