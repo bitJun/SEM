@@ -63,7 +63,12 @@ const Rights = () => {
       />
       <ScrollView
         style={{
-          height: '100%'
+          height: '100%',
+          position: 'fixed',
+          left: 0,
+          top: `calc(${systemInfo.safeArea.top}px + ${88 * rate}px)`,
+          width: '100%',
+          zIndex: 999
         }}
         scrollY={true}
       >

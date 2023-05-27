@@ -68,11 +68,16 @@ const ActiveDetail = () => {
     let jsondata = {
       activityCode: detail.activityCode
     }
-    if (payId == -1) {
+    if (detail?.activityPrice == 0) {
       jsondata.enrollType = 1;
-    } else {
-      jsondata.enrollType = 0;
-      jsondata.voucherId = payId
+    }
+    else {
+      if (payId == -1) {
+        jsondata.enrollType = 1;
+      } else {
+        jsondata.enrollType = 2;
+        jsondata.voucherId = payId
+      }
     }
     postOfflineActivityEnroll(jsondata)
       .then(res=> {
@@ -180,7 +185,7 @@ const ActiveDetail = () => {
           <View className='active_view_main_footer'>
             <View className='active_view_main_footer_detail'>
               <View className='active_view_main_footer_detail_desc'>会员独享价</View>
-              <View className='active_view_main_footer_detail_price'>￥1299</View>
+              <View className='active_view_main_footer_detail_price'>￥{detail?.activityPrice / 100}</View>
             </View>
             <View className='active_view_main_footer_action' onClick={()=>{onApply()}}>立即报名</View>
           </View>
@@ -208,7 +213,7 @@ const ActiveDetail = () => {
               className='rights_view_list_item_icon'
             />
             <View className='rights_view_list_item_main'>
-              <View className='rights_view_list_item_main_price'>￥1299</View>
+              <View className='rights_view_list_item_main_price'>￥{detail?.activityPrice / 100}</View>
               <View className='rights_view_list_item_main_desc'>不使用兑换券，直接付费报名</View>
             </View>
             {
