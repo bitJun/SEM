@@ -14,7 +14,8 @@ import {
   queryVisitOther,
   queryOtherUser,
   queryUser,
-  putEditPublic
+  putEditPublic,
+  queryUserVisitWX
 } from '@service/member';
 import {
   baseUrl
@@ -66,6 +67,14 @@ const BusinessCard = () => {
       cancelText: '取消',
       success: function (res) {
         if (res.confirm) {
+          queryUserVisitWX({beViewUserId: params.id})
+            .then(res=>{
+              Taro.showToast({
+                title: '操作成功',
+                icon: 'none'
+              })
+              onLoadData()
+            })
         } else if (res.cancel) {
         }
       }
@@ -188,29 +197,29 @@ const BusinessCard = () => {
           <View className='mine_view_main_detail_baseInfo'>
             <View className='mine_view_main_detail_baseInfo_item'>
               <View className='mine_view_main_detail_baseInfo_item_title'>行业</View>
-              <View className='mine_view_main_detail_baseInfo_item_value'></View>
+              <View className='mine_view_main_detail_baseInfo_item_value'>{detail?.industryModel?.label || '--'}</View>
             </View>
             <View className='mine_view_main_detail_baseInfo_item'>
               <View className='mine_view_main_detail_baseInfo_item_title'>业务类型</View>
-              <View className='mine_view_main_detail_baseInfo_item_value'>{detail?.businessTypeModel?.label}</View>
+              <View className='mine_view_main_detail_baseInfo_item_value'>{detail?.businessTypeModel?.label || '--'}</View>
             </View>
             <View className='mine_view_main_detail_baseInfo_item'>
               <View className='mine_view_main_detail_baseInfo_item_title'>公司</View>
-              <View className='mine_view_main_detail_baseInfo_item_value'>{detail?.company || '-'}</View>
+              <View className='mine_view_main_detail_baseInfo_item_value'>{detail?.company || '--'}</View>
             </View>
             <View className='mine_view_main_detail_baseInfo_item'>
               <View className='mine_view_main_detail_baseInfo_item_title'>职位</View>
-              <View className='mine_view_main_detail_baseInfo_item_value'>{detail?.positionModel?.label}</View>
+              <View className='mine_view_main_detail_baseInfo_item_value'>{detail?.positionModel?.label || '--'}</View>
             </View>
             <View className='mine_view_main_detail_baseInfo_item'>
               <View className='mine_view_main_detail_baseInfo_item_title'>营收规模</View>
-              <View className='mine_view_main_detail_baseInfo_item_value'>{detail?.revenueModel?.label}</View>
+              <View className='mine_view_main_detail_baseInfo_item_value'>{detail?.revenueModel?.label || '--'}</View>
             </View>
           </View>
           <View className='mine_view_main_detail_intro'>
             <View className='mine_view_main_detail_intro_title'>简介</View>
             <View className='mine_view_main_detail_intro_value'>
-              {detail?.businessProfile || '-'}
+              {detail?.businessProfile || '--'}
             </View>
           </View>
           <View className='mine_view_main_detail_others'>

@@ -70,6 +70,14 @@ const queryDictdataList = (data) => {
 	})
 }
 
+const queryUserVisitWX = (data) => {
+  return baseRequest({
+		url: `${requestBaseUrl}/user/visitWx`,
+		method: 'GET',
+    data
+	})
+}
+
 export {
   postPayToMember,
   queryUser,
@@ -78,5 +86,6 @@ export {
   queryVisitOther,
 	queryOtherUser,
 	putUser,
-	queryDictdataList
+	queryDictdataList,
+	queryUserVisitWX
 }
